@@ -8,6 +8,12 @@ describe(UniqueIdService.name, () => {
     service = new UniqueIdService();
   });
 
+  it(`#generateUniqueIdWithPrefix should generate id when called with prefix`, () => {
+    const service = new UniqueIdService();
+    const id =  service.generateUniqueIdWithPrefix('app');
+     expect(id).toContain('app-');
+  });
+
   it(`#${UniqueIdService.prototype.getNumberOfGeneratedUniqueIds.name}
     should return the number of generatedIds when called`, () => {
     service.generateUniqueIdWithPrefix('app');
